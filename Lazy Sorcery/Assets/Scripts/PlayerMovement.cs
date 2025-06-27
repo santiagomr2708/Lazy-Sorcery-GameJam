@@ -3,8 +3,8 @@ using UnityEngine.Rendering;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float movementSpeed;
-    [SerializeField] private float rotationSpeed;
+    [SerializeField] private float movementSpeed = 4f;
+    [SerializeField] private float rotationSpeed = 4f;
     [SerializeField] private CharacterController characterController;
     [SerializeField] private Transform characterTransform;
     [SerializeField] private Camera cameraCharacter;
