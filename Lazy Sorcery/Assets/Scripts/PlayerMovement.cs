@@ -12,6 +12,11 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 movement;
     private float xRotation;
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
     private void Update()
     {
         CharacterMovement();
