@@ -22,6 +22,11 @@ public class PlayerMovement2 : MonoBehaviour
     private bool isGrounded;
     private float xRotation;
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
     private void Update()
     {
         GroundCheck();
