@@ -22,13 +22,38 @@ public class PlayerMovement2 : MonoBehaviour
     private bool isGrounded;
     private float xRotation;
 
-    private void Start()
+    void OnEnable()
     {
+        // Cuando el componente se activa: bloquea y oculta el cursor
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    void OnDisable()
+    {
+        // Cuando el componente se desactiva: libera y muestra el cursor
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            // Alternamos entre bloqueado+oculto y libre+visible
+            if (Cursor.lockState == CursorLockMode.Locked)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+        }
+
         GroundCheck();
         CharacterMovement();
         CameraMovement();
