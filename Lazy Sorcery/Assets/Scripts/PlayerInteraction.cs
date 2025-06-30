@@ -16,7 +16,13 @@ public class PlayerInteraction : MonoBehaviour
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         if (Physics.Raycast(ray, out RaycastHit hit, maxDistance))
         {
-            if (hit.collider.CompareTag("Interactable"))
+            if (hit.collider.CompareTag("Vacuum"))
+            {
+                var vac = hit.collider.GetComponent<VacuumAgent>();
+                if (vac != null)
+                    vac.StartMoving();
+            }
+            else if (hit.collider.CompareTag("Interactable"))
             {
                 // Busca un componente Movable en el objeto golpeado
                 var m = hit.collider.GetComponent<MovableObject>();
