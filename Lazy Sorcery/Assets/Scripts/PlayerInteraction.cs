@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    public Camera cam;               // Arrastra aquí tu Main Camera
+    public Camera cam;               // Arrastra aquï¿½ tu Main Camera
     public float maxDistance = 10f;  // Alcance del rayo
+
+    
 
     void Update()
     {
@@ -28,6 +30,14 @@ public class PlayerInteraction : MonoBehaviour
                 var m = hit.collider.GetComponent<MovableObject>();
                 if (m != null)
                     m.StartMoving();
+
+                var a = hit.collider.GetComponent<Interactuable2>();
+                if (a != null)
+                {
+                    a.StartMoving2();
+                    
+                }
+                    
             }
         }
     }
