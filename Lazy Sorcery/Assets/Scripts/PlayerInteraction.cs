@@ -35,6 +35,12 @@ public class PlayerInteraction : MonoBehaviour
                 if (a != null)
                 {
                     a.StartMoving2();
+
+                }
+                var b = hit.collider.GetComponent<InteractableLibro>();
+                if (b != null)
+                {
+                    b.StartMoving3();
                     
                 }
                     
