@@ -7,9 +7,24 @@ using UnityEngine.SceneManagement;
 public class ControlEscenas : MonoBehaviour
 {
     Cable cableScript;
+    ContadorTiempo contadorTiempo;
+
+    void Start()
+    {
+            GameObject obj = GameObject.Find("GameManager");
+           if (obj != null)
+          {
+            contadorTiempo = obj.GetComponent<ContadorTiempo>();
+          }
+    }
 
     void Update()
     {
+        if (contadorTiempo.tiempoActual == 0)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+
    
     }
     public void NumeroConexiones()

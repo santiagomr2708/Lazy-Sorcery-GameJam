@@ -59,6 +59,7 @@ public class Interactuable2 : MonoBehaviour
         if (Vector3.Distance(transform.position, destinoPlatos) < 0.01f)
         {
             moving2 = false;
+            Destroy(this);
            
         }
 
