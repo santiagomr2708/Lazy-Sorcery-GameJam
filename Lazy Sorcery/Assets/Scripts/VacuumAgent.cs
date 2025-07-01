@@ -7,13 +7,27 @@ public class VacuumAgent : MonoBehaviour
     private bool isActive = false;
     private Vector3 homePosition;
     public float collectDistance = 1f;
-    private bool returningHome = false;
+    public bool returningHome = false;
+
+    AudioSource audioSource;
+    public AudioClip sonidoVaccum;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+
+    }
 
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         agent.isStopped = true;
-        homePosition = transform.position; // Guardamos posición inicial
+        homePosition = transform.position; // Guardamos posiciï¿½n inicial
     }
 
     // Llamar desde PlayerInteraction
@@ -24,20 +38,22 @@ public class VacuumAgent : MonoBehaviour
         agent.isStopped = false;
         returningHome = false;
         GoToNextTrash();
+        audioSource.PlayOneShot(sonidoVaccum);
     }
 
     void GoToNextTrash()
     {
+        audioSource.PlayOneShot(sonidoVaccum);
         var trashes = GameObject.FindGameObjectsWithTag("Trash");
         if (trashes.Length == 0)
         {
-            // No hay más basura: volver a casa
+            // No hay mï¿½s basura: volver a casa
             returningHome = true;
             agent.SetDestination(homePosition);
             return;
         }
 
-        // Elegir basura más cercana
+        // Elegir basura mï¿½s cercana
         Transform nearest = null;
         float minDist = Mathf.Infinity;
         foreach (var t in trashes)
