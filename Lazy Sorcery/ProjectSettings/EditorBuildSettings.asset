@@ -11,6 +11,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: a68b865d8f1222847ba89dbead13cb80
+  - enabled: 1
+    path: Assets/Scenes/Nicolas.unity
+    guid: 5049dbfc05737e44bb0f1fe9c9e07c4b
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 4b5874740406ce242b43687f5c25df39
+  - enabled: 1
+    path: Assets/Scenes/TareaCables.unity
+    guid: f705c74e8bda7f945907a9fb7c164898
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -1,13 +1,14 @@
 using UnityEngine;
+using TMPro;
 
 public class TareasCompletadas : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public TextMeshProUGUI TextoTareasCompletadas;
+    public float cantidadTareasCompletadas = 0;
     public float CantidadPlatos;
     public bool TareaPlatosCompletada = false;
     public AudioClip sonidoCompletado;
     private AudioSource audioSource;
-
     private bool sonidoReproducido = false;
     void Start()
     {
@@ -16,6 +17,7 @@ public class TareasCompletadas : MonoBehaviour
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
+       
     }
     // Update is called once per frame
     void Update()
@@ -23,11 +25,15 @@ public class TareasCompletadas : MonoBehaviour
         if (CantidadPlatos >= 10f)
         {
             TareaPlatosCompletada = true;
+
         }
         if (TareaPlatosCompletada && sonidoCompletado != null && !sonidoReproducido)
         {
-          audioSource.PlayOneShot(sonidoCompletado);
-          sonidoReproducido = true;
+            audioSource.PlayOneShot(sonidoCompletado);
+            sonidoReproducido = true;
+            cantidadTareasCompletadas++;
         }
+        
+        TextoTareasCompletadas.text = "Tareas completadas: " + cantidadTareasCompletadas;
     }
 }
