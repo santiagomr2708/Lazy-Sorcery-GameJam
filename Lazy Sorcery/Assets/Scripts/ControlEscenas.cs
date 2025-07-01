@@ -6,16 +6,25 @@ using UnityEngine.SceneManagement;
 
 public class ControlEscenas : MonoBehaviour
 {
-    Cable cableScript;
+    
     ContadorTiempo contadorTiempo;
+
+    TareasCompletadas tareasCompletadas;
 
     void Start()
     {
-            GameObject obj = GameObject.Find("GameManager");
-           if (obj != null)
-          {
+        GameObject obj = GameObject.Find("GameManager");
+        if (obj != null)
+        {
             contadorTiempo = obj.GetComponent<ContadorTiempo>();
+        }
+        GameObject obje = GameObject.Find("GameManager");
+           if (obje != null)
+          {
+            tareasCompletadas = obj.GetComponent<TareasCompletadas>();
           }
+          
+          
     }
 
     void Update()
@@ -24,14 +33,11 @@ public class ControlEscenas : MonoBehaviour
         {
             SceneManager.LoadScene("GameOver");
         }
-
+       if (tareasCompletadas.cantidadTareasCompletadas == 5)
+        {
+            SceneManager.LoadScene("Victory");
+        }
    
     }
-    public void NumeroConexiones()
-    {
-          if (cableScript.NumeroConexiones == 4)
-        {
-            SceneManager.LoadScene("Game");
-        }
-    }
+      
 }

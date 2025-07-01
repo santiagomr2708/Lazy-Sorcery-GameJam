@@ -9,7 +9,7 @@ public class InteractableLibro : MonoBehaviour
     private Vector3 startPos;
      TareasCompletadas tareasCompletadas;
     Vector3 destinoLibro;
-    float velocidadPlatos = 2f;
+    float velocidadPlatos = 5f;
     
     public bool moving3 = false;
 

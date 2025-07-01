@@ -10,23 +10,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 06552e2773b2d41499801f8504e6800e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 51.73
+      value: 21.552788
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 06552e2773b2d41499801f8504e6800e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 41.664
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 06552e2773b2d41499801f8504e6800e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 51.555
+      value: 21.479876
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 06552e2773b2d41499801f8504e6800e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.132761
+      value: -0.18889
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 06552e2773b2d41499801f8504e6800e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.0000005
+      value: -0.62326
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 06552e2773b2d41499801f8504e6800e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.8855505
+      value: -3.7713
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 06552e2773b2d41499801f8504e6800e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -63,6 +67,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 06552e2773b2d41499801f8504e6800e, type: 3}
       propertyPath: m_Name
       value: water_stains__0630042239_texture
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 06552e2773b2d41499801f8504e6800e, type: 3}
+      propertyPath: m_TagString
+      value: Trash
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -1,31 +1,39 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class MovableObject : MonoBehaviour
 {
-    public float distance = 2f;    // cu�nto se mueve a cada lado
-    public float speed = 2f;       // velocidad de ida y vuelta
+    [Header("Destino (rellénalos en el Inspector)")]
+    public float positionX;
+    public float positionY;
+    public float positionZ;
 
-    private Vector3 startPos;
-    public bool moving = false;
+    [Header("Movimiento")]
+    public float speed = 2f;    // unidades por segundo
 
-    void Start()
+    private Vector3 targetPos;
+    private bool moving = false;
+
+    // Llamar desde PlayerInteraction
+    public void StartMoving()
     {
-        startPos = transform.position;
+        // Calcula el Vector3 destino con los valores del Inspector
+        targetPos = new Vector3(positionX, positionY, positionZ);
+        moving = true;
     }
 
     void Update()
     {
-        if (moving)
-        {
-            float x = Mathf.PingPong(Time.time * speed, distance) - (distance / 2f);
-            transform.position = startPos + new Vector3(x, 0, 0);
-        }
-    }
+        if (!moving) return;
 
-    public void StartMoving()
-    {
-        moving = true;
+        // Mueve hacia targetPos
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            targetPos,
+            speed * Time.deltaTime
+        );
+
+        // Si llegó, para el movimiento
+        if (Vector3.Distance(transform.position, targetPos) < 0.01f)
+            moving = false;
     }
 }
-
