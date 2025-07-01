@@ -6,16 +6,25 @@ public class TareasCompletadas : MonoBehaviour
     public TextMeshProUGUI TextoTareasCompletadas;
     public float cantidadTareasCompletadas = 0;
     public float CantidadPlatos;
+    public float CantidadLibros;
     public bool TareaPlatosCompletada = false;
-    public AudioClip sonidoCompletado;
-    private AudioSource audioSource;
-    private bool sonidoReproducido = false;
+    public bool tareaAspiradoraCompletada = false;
+    public bool tareaLibroCompletada = false;
+    private bool yaSumadoPlatos = false;
+    private bool yaSumadoAspiradora = false;
+    public bool yaSumadoLibro = false;
+    
+
+    VacuumAgent vacuumAgent;
+
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-        if (audioSource == null)
+       
+
+        GameObject vaccum = GameObject.Find("VacuumCleaner");
+        if (vaccum != null)
         {
-            audioSource = gameObject.AddComponent<AudioSource>();
+        vacuumAgent = vaccum.GetComponent<VacuumAgent>();
         }
        
     }
@@ -25,14 +34,41 @@ public class TareasCompletadas : MonoBehaviour
         if (CantidadPlatos >= 10f)
         {
             TareaPlatosCompletada = true;
+            if (!yaSumadoPlatos)
+            {
+                cantidadTareasCompletadas += 1f;
+                yaSumadoPlatos = true;
+            }
+            
+            
 
         }
-        if (TareaPlatosCompletada && sonidoCompletado != null && !sonidoReproducido)
+       
+
+        if (vacuumAgent.returningHome == true)
         {
-            audioSource.PlayOneShot(sonidoCompletado);
-            sonidoReproducido = true;
-            cantidadTareasCompletadas++;
+            tareaAspiradoraCompletada = true;
+            if (!yaSumadoAspiradora)
+            {
+                cantidadTareasCompletadas += 1f;
+                yaSumadoAspiradora = true;
+                
+            }
+            
         }
+
+         if (CantidadLibros == 1)
+        {
+            tareaLibroCompletada = true;
+            if (!yaSumadoLibro)
+            {
+                cantidadTareasCompletadas += 1f;
+                yaSumadoLibro = true;
+                
+            }
+            
+        }
+      
         
         TextoTareasCompletadas.text = "Tareas completadas: " + cantidadTareasCompletadas;
     }
