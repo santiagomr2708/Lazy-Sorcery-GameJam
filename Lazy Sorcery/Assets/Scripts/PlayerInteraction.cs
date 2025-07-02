@@ -41,9 +41,20 @@ public class PlayerInteraction : MonoBehaviour
                 if (b != null)
                 {
                     b.StartMoving3();
-                    
+
                 }
+                var c = hit.collider.GetComponent<InteractableBotella>();
+                if (c != null)
+                {
+                    c.StartMoving4();
+
+                } 
+                var d = hit.collider.GetComponent<InteractableEstufa>();
+                if (d != null)
+                {
+                    d.StartMoving5();
                     
+                }     
             }
         }
     }

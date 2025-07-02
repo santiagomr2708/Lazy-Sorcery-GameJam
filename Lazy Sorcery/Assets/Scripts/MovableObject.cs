@@ -37,6 +37,3 @@ public class MovableObject : MonoBehaviour
             moving = false;
     }
 }
-
-
-
